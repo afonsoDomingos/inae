@@ -1,0 +1,1 @@
+<template><div class="page"><h1>Legislação</h1><p>Documentos legais.</p></div></template>

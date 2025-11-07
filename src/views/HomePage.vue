@@ -1,30 +1,31 @@
 <template>
-  <div class="home-page">
-    <h2>Bem-vindo à INAE</h2>
-    <p>Esta é a página inicial do sistema.</p>
+  <div class="home">
+    <HeroBanner />
+    <StatsCounter />
+    <ActivityAreas />
+    <LatestNews />
   </div>
 </template>
 
 <script>
+import HeroBanner from '@/components/home/HeroBanner.vue'
+import StatsCounter from '@/components/home/StatsCounter.vue'
+import ActivityAreas from '@/components/home/ActivityAreas.vue'
+import LatestNews from '@/components/home/LatestNews.vue'
+
 export default {
-  name: 'HomePage'  // nome multi-word
+  name: 'HomePage',
+  components: {
+    HeroBanner,
+    StatsCounter,
+    ActivityAreas,
+    LatestNews
+  }
 }
 </script>
 
 <style scoped>
-.home-page {
-  text-align: center;
-  margin-top: 100px;
-}
-
-h2 {
-  color: #27ae60; /* verde */
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
-
-p {
-  font-size: 1.1rem;
-  color: #333;
+.home {
+  background-color: #f8f9fa;
 }
 </style>

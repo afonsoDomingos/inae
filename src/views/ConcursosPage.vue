@@ -1,0 +1,1 @@
+<template><div class="page"><h1>Concursos</h1><p>Oportunidades de emprego.</p></div></template>
