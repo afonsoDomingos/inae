@@ -1,13 +1,15 @@
 <template>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <!-- Logo -->
-      <router-link to="/" class="logo">
-        <img src="@/assets/logo-inae.png" alt="INAE Logo" class="logo-img" />
-      </router-link>
+  <header>
+    <div class="baselogo">
+      <Svg name="baselogo" class="baselogo" />
+    </div>
 
-      <!-- Links Desktop -->
-      <ul class="nav-links" :class="{ 'mobile-open': mobileMenuOpen }">
+    <div class="logoo">
+      <Svg name="logo" class="logo1" />
+    </div>
+
+    <nav class="navbar">
+       <ul class="nav-links" :class="{ 'mobile-open': mobileMenuOpen }">
         <li><router-link to="/" active-class="active" exact @click="closeMenu">Início</router-link></li>
         <li><router-link to="/sobre" active-class="active" exact @click="closeMenu">Sobre-Nós</router-link></li>
         <li><router-link to="/legislacao" active-class="active" exact @click="closeMenu">Legislação</router-link></li>
@@ -15,178 +17,95 @@
         <li><router-link to="/concursos" active-class="active" exact @click="closeMenu">Concursos</router-link></li>
         <li><router-link to="/contacto" active-class="active" exact @click="closeMenu">Contacto</router-link></li>
       </ul>
+    </nav>
 
-      <!-- Botão Denúncia (Desktop) -->
-      <router-link to="/denuncia" class="denuncia-btn desktop">
-        <span class="exclamation">!</span> Denuncie
-      </router-link>
+    <button class="Buttondenuncia">
+     <Svg name="denuncia" class="denuncia"/> Denuncia
+    </button>
 
-      <!-- Hambúrguer -->
-      <button class="hamburger" @click="toggleMenu" :class="{ active: mobileMenuOpen }">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- Botão Denúncia (Mobile) -->
-    <div class="mobile-denuncia" v-if="mobileMenuOpen">
-      <router-link to="/denuncia" class="denuncia-btn" @click="closeMenu">
-        <span class="exclamation">!</span> Denuncie
-      </router-link>
-    </div>
-  </nav>
+  </header>
+  
 </template>
 
-<script>
-export default {
-  name: 'AppHeader',
-  data() {
-    return { mobileMenuOpen: false }
-  },
-  methods: {
-    toggleMenu() { this.mobileMenuOpen = !this.mobileMenuOpen },
-    closeMenu() { this.mobileMenuOpen = false }
-  }
-}
+<script setup>
+import { ref } from 'vue'
+import Svg from '../assets/Svg/Svgs.vue'
+import Svgs from '../assets/Svg/Svgs.vue'
+
+
 </script>
 
 <style scoped>
+header {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background-color: var(--cor-verde);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  align-items: center;
+}
+
+.baselogo {
+  width: 286px;
+  height: 60px;
+  right: 51px;
+}
 
 .navbar {
-  background-color: var(--cor-verde);
-  padding: 0.75rem 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  position: fixed;
 }
 
-.navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
+ul {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-.logo-img { height: 44px; width: auto; }
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2.2rem;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-
-.nav-links a {
-  color: var(--cor-branco);
   text-decoration: none;
+  list-style: none;
+}
+
+li {
   font-family: semibold;
   font-size: var(--f3);
-  letter-spacing: 0.3px;
-  padding: 0.5rem 0;
-  position: relative;
+  padding: 1.5rem;
+  list-style: none;
+  color: var(--cor-branco);
 }
 
-.denuncia-btn {
-  background: white;
-  color: #d32f2f;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.65rem 1.2rem;
-  border-radius: 8px;
+li a {
+  color: var(--cor-branco);
   text-decoration: none;
+}
+
+.logo1{
+  width: 40px;
+  height: 60px;
+  right: 230px;
+}
+
+.Buttondenuncia{
   display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-}
-
-.denuncia-btn:hover {
-  background: #ffebee;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
-}
-
-.exclamation {
-  background: #d32f2f;
-  color: white;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
+  text-align: center;
+  background-color: var(--cor-branco);
+  color: var(--cor-preta);
+  font-family: semibold;
+  margin-left: auto;
+  margin-right: 50px;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  gap: 2px;
 }
 
-.hamburger span {
-  width: 28px;
-  height: 3px;
-  background: white;
-  border-radius: 2px;
-  transition: 0.3s;
+.denuncia {
+  width: 15px;
+  color: var(--cor-branco);
 }
 
-.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-.hamburger.active span:nth-child(2) { opacity: 0; }
-.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-
-/* Mobile */
-@media (max-width: 992px) {
-  .hamburger { display: flex; }
-  .denuncia-btn.desktop { display: none; }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #005a00;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 0;
-    gap: 1.5rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-
-  .nav-links.mobile-open {
-    max-height: 500px;
-    padding: 2rem 0;
-  }
-
-  .nav-links a {
-    font-size: 1.1rem;
-    padding: 0.8rem 1rem;
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-links a.active::after { display: none; }
-
-  .mobile-denuncia { padding: 0 1.5rem 1.5rem; text-align: center; }
-}
-
-@media (max-width: 480px) {
-  .logo-img { height: 38px; }
-}
 </style>

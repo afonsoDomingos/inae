@@ -16,8 +16,5 @@ export default {
 </script>
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { scroll-behavior: smooth; }
-#app { min-height: 100vh; display: flex; flex-direction: column; }
-router-view { flex: 1; }
+
 </style>

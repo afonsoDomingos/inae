@@ -66,6 +66,11 @@ a{
 img {
     border-style: none;
 }
+svg {
+  position: relative;
+  z-index: 10; /* garante que fica por cima */
+  pointer-events: auto;
+}
 
 button {
     font-family: inherit;
