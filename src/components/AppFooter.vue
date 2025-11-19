@@ -1,244 +1,350 @@
 <template>
-  <footer class="footer">
-    <div class="footer-container">
-      <!-- Coluna 1: Logo + Descrição -->
-      <div class="footer-col logo-col">
-        <router-link to="/" class="footer-logo">
-         
-        </router-link>
-        <p class="footer-desc">
-          Instituto Nacional de Apoio às Empresas<br>
-          Promovendo o desenvolvimento empresarial em Moçambique.
+  <footer class="footer-container">
+    <div class="footer">
+
+
+      <!-- Seção esquerda: Logo e descrição da INAE -->
+      <div class="footer-logo-section">
+        <!-- Placeholder para a logo - substitua com sua imagem -->
+        <div class="logo-placeholder">
+          <Svg name="logofooter" class="logofooter"/>
+        </div>
+
+        <!-- Descrição institucional da INAE -->
+        <p class="footer-descricao">
+          A Inspeção Nacional Das Atividades Econômicas (INAE) É O
+          Órgão Do Estado Responsável Por Fiscalizar E Promover O
+          Cumprimento Das das normas que regulam a produção e 
+          À Comercialização De Bens E Serviços Em Moçambique
         </p>
       </div>
 
-      <!-- Coluna 2: Links Rápidos -->
-      <div class="footer-col">
-        <h3 class="footer-title">Navegação</h3>
-        <ul class="footer-links">
-          <li><router-link to="/">Início</router-link></li>
-          <li><router-link to="/sobre">Sobre-Nós</router-link></li>
-          <li><router-link to="/legislacao">Legislação</router-link></li>
-          <li><router-link to="/noticias">Notícias</router-link></li>
-          <li><router-link to="/concursos">Concursos</router-link></li>
-          <li><router-link to="/contacto">Contacto</router-link></li>
-        </ul>
+      <!-- Seção central: Endereço da instituição -->
+      <div class="footer_indereco">
+        <h3>Endereço</h3>
+        <p>
+          Av. 10 De Novembro, Praceta Nº 1196,<br>
+          3º Andar, Cidade De Maputo,<br>
+          Moçambique
+        </p>
       </div>
 
-      <!-- Coluna 3: Contactos -->
-      <div class="footer-col">
-        <h3 class="footer-title">Contactos</h3>
-        <ul class="footer-contact">
-          <li><i class="icon">Location</i> Av. Ahmed Sekou Touré, Maputo</li>
-          <li><i class="icon">Phone</i> +258 21 300 000</li>
-          <li><i class="icon">Email</i> info@inae.gov.mz</li>
+      <!-- Seção direita: Links de navegação -->
+      <div class="footer-links">
+        <h3>Links</h3>
+        <ul>
+        <li><router-link to="/" active-class="active" exact @click="closeMenu">Início</router-link></li>
+        <li><router-link to="/sobre" active-class="active" exact @click="closeMenu">Sobre-Nós</router-link></li>
+        <li><router-link to="/legislacao" active-class="active" exact @click="closeMenu">Legislação</router-link></li>
+        <li><router-link to="/noticias" active-class="active" exact @click="closeMenu">Notícias</router-link></li>
+        <li><router-link to="/concursos" active-class="active" exact @click="closeMenu">Concursos</router-link></li>
+        <li><router-link to="/contacto" active-class="active" exact @click="closeMenu">Contacto</router-link></li>
         </ul>
       </div>
+    </div>
 
-      <!-- Coluna 4: Denúncia + Redes -->
-      <div class="footer-col">
-        <h3 class="footer-title">Denuncie</h3>
-        <router-link to="/denuncia" class="denuncia-btn-footer">
-          <span class="exclamation">!</span> Fazer Denúncia
-        </router-link>
+    <!-- Seção intermediária: Contato e email -->
+    <div class="footer-middle">
+      <div class="footer-middle-content">
+        <!-- Informações de contato -->
+        <div class="footer-contact">
+          <p class="contact-label">Contacto</p>
+          <p class="contact-phone">+258 85 000 2020</p>
+        </div>
 
-        <div class="social-links">
-          <a href="#" aria-label="Facebook"><i class="icon">Facebook</i></a>
-          <a href="#" aria-label="Twitter"><i class="icon">Twitter</i></a>
-          <a href="#" aria-label="LinkedIn"><i class="icon">LinkedIn</i></a>
+        <!-- Email institucional -->
+        <div class="footer-email">
+          <p class="email-label">E-Mail / Seg. A Sex. Das 8h Às 15h</p>
+          <p class="email-address">inspeccionacionalidasatividadeseconomicas@inae.com.mz</p>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="footer-social">
+          <a href="#" class="social-icon">
+            <!-- Ícone Instagram -->
+            <Svg name="iconfacebook" class="iconfacebook" />
+          </a>
+          <a href="#" class="social-icon">
+            <!-- Ícone Facebook -->
+            <Svg name="iconinstagram" class="iconinstagram" />
+          </a>
+
+           <a href="#" class="social-icon">
+            <!-- Ícone  Linkdin-->
+
+          </a>
         </div>
       </div>
     </div>
 
-    <!-- Copyright -->
+    <!-- Seção inferior: Copyright e brasão de Moçambique -->
     <div class="footer-bottom">
-      <p>&copy; 2025 INAE - Instituto Nacional de Apoio às Empresas. Todos os direitos reservados.</p>
+      <div class="footer-bottom-content">
+        <!-- Texto de copyright -->
+        <p class="copyright">
+          ©2025 Inspeção nacional das atividades econômicas-INAE-Todos os direitos Reservados
+        </p>
+
+        <!-- Logo do municipio -->
+        <img src="../assets/republica.png" alt="logo-da-republica" class="republica">
+        
+      </div>
     </div>
   </footer>
 </template>
 
-<script>
-export default {
+<script setup>
+defineOptions({
   name: 'AppFooter'
-}
+})
+
+import Svg from '../assets/Svg/Svgs.vue'
 </script>
 
 <style scoped>
-/* Fontes já carregadas no AppHeader */
-.footer {
-  background-color: #004d00;
-  color: white;
-  padding: 3rem 1rem 1rem;
-  margin-top: 4rem;
-  font-family: 'Roboto', sans-serif;
-}
 
 .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.8fr 1fr 1.2fr 1fr;
-  gap: 2rem;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  width: 100%;
 }
 
-.footer-col h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: #ffcc00;
+.footer {
   position: relative;
+  max-width: 1500px;
+  margin: 30;
+  left: 100px;
+  padding: 60px 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.footer-col h3::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background: #ffcc00;
-  border-radius: 2px;
+.footer-logo-section {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
 }
 
-.footer-desc {
-  font-size: 0.95rem;
+.logofooter{
+  width: 120px;
+  bottom: 30px;
+  left: 100px;
+  margin-bottom: 10px;
+}
+
+
+.footer-descricao {
+  font-size: var(--f9);
+  font-family: semibold;
   line-height: 1.6;
-  color: #e0e0e0;
-  margin-top: 1rem;
+  color: var(--cor-cinza);
+  width: 600px;
 }
 
-.footer-logo-img {
-  height: 50px;
-  filter: brightness(0) invert(1);
+/*
+   SEÇÃO DO ENDEREÇO
+*/
+
+.footer_indereco {
+  flex: 2;
+  min-width: 250px;
+  max-width: 300px;
+  left: 900px;
 }
 
-.footer-links,
-.footer-contact {
+.footer_indereco h3 {
+  font-size: var(--f4);
+  margin-bottom: 18px;
+  font-family: semibold;
+  color: var(--cor-branco);
+  
+}
+
+.footer_indereco p {
+  font-size: var(--f9);
+  line-height: 1.7;
+  color: var(--cor-cinza);
+  width: 500px
+}
+
+.footer-links {
+  flex: 1;
+  min-width: 150px;
+  max-width: 200px;
+}
+
+.footer-links h3 {
+  font-size: var(--f4);
+  margin-bottom: 18px;
+  font-family: semibold;
+  color: var(--cor-branco);
+}
+
+.footer-links ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
-.footer-links li,
-.footer-contact li {
-  margin-bottom: 0.7rem;
+.footer-links li {
+  margin-bottom: 10px;
 }
 
 .footer-links a {
-  color: #e0e0e0;
+  color: var(--cor-cinza);
   text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
+  font-size: var(--f9);
+  transition: all .4s;
 }
 
 .footer-links a:hover {
-  color: #ffcc00;
+  margin-left: 10px;
 }
 
-.footer-contact li {
+/* 
+   SEÇÃO intermediaria Contato e Email
+    */
+
+.footer-middle {
+  border-top: 2px solid var(--cor-cinza-footer);
+  border-bottom: 2px solid var(--cor-cinza-footer);
+  padding: 50px 0;
+  margin-top: 16px;
+  margin-right: 5px;
+}
+
+.footer-middle-content {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.92rem;
-  color: #d0d0d0;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-.icon {
-  font-style: normal;
-  font-weight: bold;
-  color: #ffcc00;
+/* Informações de contato telefônico */
+.footer-contact {
+  flex: 1;
+  min-width: 200px;
 }
 
-.denuncia-btn-footer {
-  background-color: white;
-  color: #d32f2f;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+.contact-label {
+  font-size: var(--f4);
+  color: var(--cor-cinza);
+  margin-bottom: 10px;
 }
 
-.denuncia-btn-footer:hover {
-  background-color: #ffebee;
-  transform: translateY(-2px);
+.contact-phone {
+  font-size: var(--f5);
+  font-family: semibold;
+  color: var(--cor-branco);
 }
 
-.exclamation {
-  background: #d32f2f;
-  color: white;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+/* Informações de email */
+.footer-email {
+  flex: 2;
+  min-width: 300px;
+}
+
+.email-label {
+  font-size: var(--f4);
+  color: var(--cor-cinza);
+  margin-bottom: 10px;
+  margin-top: -24px;
+}
+
+.email-address {
+   font-size: var(--f4);
+  font-family: semibold;
+  color: var(--cor-branco);
+  margin-bottom: -15px;
+}
+
+/* Ícones de redes sociais */
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 0.9rem;
 }
 
-.social-links {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.social-links a {
-  color: #e0e0e0;
-  font-size: 1.3rem;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #ffcc00;
-}
+/* 
+   Copyright 
+    */
 
 .footer-bottom {
-  text-align: center;
-  padding-top: 2rem;
-  margin-top: 2rem;
-  border-top: 1px solid #005a00;
-  font-size: 0.85rem;
-  color: #b0b0b0;
+  padding: 30px 0;
 }
 
-/* Responsivo */
-@media (max-width: 992px) {
-  .footer-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-  .logo-col {
-    grid-column: 1 / -1;
-    text-align: center;
-  }
-  .footer-logo-img {
-    height: 45px;
-  }
+.footer-bottom-content {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
-  .footer-container {
-    grid-template-columns: 1fr;
+/* Texto de copyright */
+.copyright {
+  font-size: var(--f9);
+  color: var(--cor-branco);
+  flex: 1;
+}
+
+/* republica */
+.republica {
+  width: 50px;
+}
+
+/* 
+   RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS
+    */
+
+@media (max-width: 768px) {
+  /* Ajusta seção superior para coluna em telas pequenas */
+  .footer {
+    flex-direction: column;
+    padding: 1px 0px 5px ;
+  }
+
+  /* Centraliza conteúdo em mobile */
+
+  .footer-logo-section,
+  .footer_indereco,
+  .footer-links {
+   width: 100%;
+   margin-right: 900px;
+  }
+
+  /* Ajusta seção do meio para coluna */
+  .footer-middle-content {
+    flex-direction: column;
     text-align: center;
   }
-  .footer-col h3::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .footer-contact li {
+
+  /* Centraliza redes sociais */
+  .footer-social {
     justify-content: center;
   }
-  .denuncia-btn-footer {
-    display: inline-flex;
-    margin: 1rem auto 0;
+
+  /* Ajusta seção inferior para coluna */
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
   }
 }
 </style>

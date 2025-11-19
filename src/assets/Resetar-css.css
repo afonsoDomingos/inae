@@ -50,12 +50,12 @@ body.bloqueado {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--cor-preto);
+    background: var(--cor-descricaoNotia);
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--cor-amarela);
-    border-radius: 0px 20px;
+    border-radius: 20px;
 }
 
 a,
