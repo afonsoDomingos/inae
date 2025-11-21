@@ -41,7 +41,7 @@ body.bloqueado {
 /*MUDA A COR QUANTOS SELECIONAS*/
 ::selection {
     color: var(--cor-ver);
-    background-color: #1a55a28b;
+    background-color: #10c7358b;
 }
 
 /*Estilizando a barra de Rolgem*/

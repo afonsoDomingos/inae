@@ -113,8 +113,7 @@ import Svg from '../assets/Svg/Svgs.vue'
 .footer {
   position: relative;
   max-width: 1500px;
-  margin: 30;
-  left: 100px;
+  margin: 0 auto;
   padding: 60px 20px 40px;
   display: flex;
   justify-content: space-between;
@@ -125,15 +124,14 @@ import Svg from '../assets/Svg/Svgs.vue'
 
 .footer-logo-section {
   flex: 1;
-  min-width: 280px;
+  min-width: 300px;
   max-width: 400px;
 }
 
 .logofooter{
   width: 120px;
-  bottom: 30px;
-  left: 100px;
   margin-bottom: 10px;
+  left: 100px;
 }
 
 
@@ -142,18 +140,13 @@ import Svg from '../assets/Svg/Svgs.vue'
   font-family: semibold;
   line-height: 1.6;
   color: var(--cor-cinza);
-  width: 600px;
+  max-width: 100%;
 }
-
-/*
-   SEÇÃO DO ENDEREÇO
-*/
 
 .footer_indereco {
   flex: 2;
   min-width: 250px;
   max-width: 300px;
-  left: 900px;
 }
 
 .footer_indereco h3 {
@@ -168,7 +161,6 @@ import Svg from '../assets/Svg/Svgs.vue'
   font-size: var(--f9);
   line-height: 1.7;
   color: var(--cor-cinza);
-  width: 500px
 }
 
 .footer-links {
@@ -208,11 +200,11 @@ import Svg from '../assets/Svg/Svgs.vue'
     */
 
 .footer-middle {
+  max-width: 100%;
   border-top: 2px solid var(--cor-cinza-footer);
   border-bottom: 2px solid var(--cor-cinza-footer);
   padding: 50px 0;
   margin-top: 16px;
-  margin-right: 5px;
 }
 
 .footer-middle-content {
@@ -326,7 +318,6 @@ import Svg from '../assets/Svg/Svgs.vue'
   .footer_indereco,
   .footer-links {
    width: 100%;
-   margin-right: 900px;
   }
 
   /* Ajusta seção do meio para coluna */
