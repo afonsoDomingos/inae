@@ -1,17 +1,20 @@
 <template>
- <div class="PrimeiraSection">
- <PrimeiraSection />
-
+ <div class="NaturezaSection">
+ <NaturezaSection />
+ <CompetenciasSection />
  </div>
+ 
 </template>
 
 <script>
-import PrimeiraSection from '@/components/sobre-nos/PrimeiraSection.vue';
+import NaturezaSection from '@/components/sobre-nos/NaturezaSection.vue';
+import CompetenciasSection from '@/components/sobre-nos/CompetenciasSection.vue';
 
 export default {
-  name: 'Sobrepage',
+  name: 'SobrePage',
   components: {
-    PrimeiraSection,
+    NaturezaSection,
+    CompetenciasSection,
   }
 }
 
