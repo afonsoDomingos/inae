@@ -44,3 +44,16 @@
     font-display: swap;
     src: url('./fonts/Figtree-SemiBold.woff') format('woff');
 }
+
+
+
+.bg-inae { background: linear-gradient(135deg, #3b8253, #228B22) !important; }
+.text-inae { color: #3b8253 !important; }
+.btn-inae {
+  background: #006400;
+  border-color: #006400;
+}
+.btn-inae:hover {
+  background: #228B22 !important;
+  border-color: #228B22 !important;
+}

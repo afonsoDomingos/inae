@@ -1,7 +1,12 @@
 <template>
+<<<<<<< HEAD
  <div class="NaturezaSection">
  <NaturezaSection />
  <CompetenciasSection />
+=======
+ <div class="PrimeiraSection">
+ <PrimeiraSection />
+>>>>>>> 18fa648dbab367773d1fae958ff4f9ccea2f694c
  </div>
  
 </template>

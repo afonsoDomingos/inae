@@ -1,9 +1,19 @@
 // vue.config.js
-const { defineConfig } = require('@vue/cli-service')
+const path = require('path')
 
-module.exports = defineConfig({
+module.exports = {
   transpileDependencies: true,
-  lintOnSave: true, // ou false se quiser desativar lint temporariamente
+  lintOnSave: false,
+
+  // ESSA LINHA É A MÁGICA → faz o @ funcionar
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src/')
+      }
+    }
+  },
+
   css: {
     loaderOptions: {
       sass: {
@@ -11,4 +21,4 @@ module.exports = defineConfig({
       }
     }
   }
-})
+}

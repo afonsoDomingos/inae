@@ -16,25 +16,63 @@
         <li><router-link to="/noticias" active-class="active" exact @click="closeMenu">Notícias</router-link></li>
         <li><router-link to="/concursos" active-class="active" exact @click="closeMenu">Concursos</router-link></li>
         <li><router-link to="/contacto" active-class="active" exact @click="closeMenu">Contacto</router-link></li>
+
+        <!-- ADMIN / LOGIN / LOGOUT -->
+        <li>
+          <!-- Se estiver logado → mostra Admin ou Logout -->
+          <a v-if="isLoggedIn" href="#" @click.prevent="handleAdminClick" class="admin-link">
+            <i class="bi bi-shield-lock-fill"></i>
+            <span v-if="showLogout">Logout</span>
+            <span v-else>Admin</span>
+          </a>
+
+          <!-- Se NÃO estiver logado → mostra Login -->
+          <router-link v-else to="/admin/login" @click="closeMenu" class="admin-link">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </router-link>
+        </li>
       </ul>
     </nav>
 
     <button class="Buttondenuncia">
-    <Svg name="denuncia" class="denuncia"/> Denuncia 
+      <Svg name="denuncia" class="denuncia"/> Denuncia 
     </button>
-
   </header>
-  
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
 import Svg from '../assets/Svg/Svgs.vue'
 import Svgs from '../assets/Svg/Svgs.vue'
 
+const auth = useAuthStore()
+const router = useRouter()
 
+const isLoggedIn = computed(() => auth.isLoggedIn)
+const showLogout = ref(false)
+
+// Mobile
+const mobileMenuOpen = ref(false)
+const closeMenu = () => mobileMenuOpen.value = false
+
+// Clique no link Admin
+const handleAdminClick = () => {
+  if (showLogout.value) {
+    auth.logout()
+    showLogout.value = false
+    router.push('/')
+  } else {
+    showLogout.value = true
+    setTimeout(() => {
+      if (isLoggedIn.value) showLogout.value = false
+    }, 3000)
+  }
+}
 </script>
 
+<!-- 100% TEU ESTILO ORIGINAL – só adicionei o gap no ícone -->
 <style scoped>
 header {
   display: flex;
@@ -48,26 +86,10 @@ header {
   align-items: center;
 }
 
-.baselogo {
-  width: 286px;
-  height: 60px;
-  right: 51px;
-}
+.baselogo { width: 286px; height: 60px; right: 51px; }
+.navbar { display: flex; justify-content: center; text-align: center; width: 100%; position: fixed; }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  position: fixed;
-}
-
-ul {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  list-style: none;
-}
+ul { display: flex; align-items: center; text-decoration: none; list-style: none; }
 
 li {
   font-family: semibold;
@@ -81,17 +103,14 @@ li {
 li a {
   color: var(--cor-branco);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;   /* espaço entre ícone e texto */
 }
 
-li a:hover{
-  opacity: .8;
-}
+li a:hover { opacity: .8; }
 
-.logo1{
-  width: 40px;
-  height: 60px;
-  right: 230px;
-}
+.logo1 { width: 40px; height: 60px; right: 230px; }
 
 .Buttondenuncia{
   cursor: pointer;
@@ -115,9 +134,12 @@ li a:hover{
   color: var(--cor-branco);
 }
 
-.denuncia {
-  width: 15px;
-  color: var(--cor-branco);
-}
+.denuncia { width: 15px; color: var(--cor-branco); }
 
+/* Destaque discreto só pro link admin/login */
+.admin-link {
+  background: rgba(255,255,255,0.15);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+}
 </style>

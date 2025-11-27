@@ -1,13 +1,56 @@
     <template>
       <section class="secao-ultimas-noticias">
-      <NoticiasPage />
+        <div class="container-noticias">
+          <div class="cabecalho-secao">
+            <h2 class="titulo-secao"> Últimas Notícias</h2>
+
+            <div class="botoes-navegacao">
+              <button class="btn-navegacao btn-anterior" @click="voltarNoticia" :disabled="indiceAtual === 0">
+                <Svg name="nextnoticias" class="voltarbutton" />
+              </button>
+
+              <button class="btn-navegacao btn-proximo" @click="avancarNoticia"
+                :disabled="indiceAtual >= noticias.length - noticiasVisiveis">
+                <Svg name="nextnoticias" />
+              </button>
+            </div>
+          </div>
+
+          <div class="carrossel-wrapper">
+            <div class="carrossel-noticias"
+              :style="{ transform: `translateX(-${indiceAtual * (100 / noticiasVisiveis)}%)` }">
+              <!--Move o carrousel para esquerda-->
+
+              <!-- Card de Notícia Article por que a tendencia é que o html intenda que iss é um artigo-->
+              <article v-for="(noticia, index) in noticias" :key="index" class="card-noticia">
+                <!-- Imagens de noticias encapsula todas as imagens-->
+                <div class="container-imagem">
+                  <img :src="noticia.imagem" :alt="noticia.titulo" class="imagem-noticia" />
+                </div>
+
+                <!-- Conteúdo da Notícia -->
+                <div class="conteudo-noticia">
+                  <h3 class="titulo-noticia">{{ noticia.titulo }}</h3>
+
+                  <p class="descricao-noticia">{{ noticia.descricao }}</p>
+
+                  <!-- Botão Ver Notícia Completa -->
+                  <button class="btn-ver-noticia" @click="verNoticiaCompleta(noticia.id)">
+                    Ver Notícia Completa
+                    <Svg name="arawnoticia" class="arawnoticia" />
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
       </section>
     </template>
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
-
+import Svg from '../../assets/Svg/Svgs.vue'
 import NoticiasPage from '@/views/NoticiasPage.vue'
 
 // COMPOSABLES 

@@ -1,12 +1,22 @@
+// src/main.js
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
-import Svgs from './assets/Svg/Svgs.vue'
+import './assets/main.css'   // seu CSS global
 
 
-createApp(App)
-  .use(router)
-  .mount('#app')
-export default {
-  components: {Svgs}
-}
+// ==== BOOTSTRAP (adiciona aqui) ====
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+
+const app = createApp(App)
+
+
+
+
+app.use(createPinia())
+app.use(router)
+
+app.mount('#app')

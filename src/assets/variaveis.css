@@ -1,4 +1,11 @@
 :root {
+
+
+  --bs-primary: #3b8253 !important;     
+  --bs-primary-rgb: 0, 100, 0 !important;
+  --bs-success: #3b8253 !important;      
+  --bs-warning: #FFD700 !important;      
+
     --cor-fundo: #FCFCFC;
     --cor-branco: #ffffff;
     --cor-preto: #000000;
